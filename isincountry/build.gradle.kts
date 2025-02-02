@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.maven.publish) // Apply the maven-publish plugin
 }
 
 android {
@@ -34,3 +35,20 @@ dependencies {
     // Play Services for location
     implementation("com.google.android.gms:play-services-location:21.0.1")
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.almitoo"
+                artifactId = "isInCountry"
+                version = "1.0.0"
+                artifact(tasks.getByName("bundleReleaseAar"))
+
+                // Add dependencies to the Maven publication configuration (api or implementation)
+
+            }
+        }
+    }
+}
+
