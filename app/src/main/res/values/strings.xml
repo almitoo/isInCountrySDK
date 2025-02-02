@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Location</string>
+    <string name="map_api_key">AIzaSyB99F9nS0U-Og_L8p_tJ0w8gFniZn9Z-f4</string>
+    <string name="check_location">Check Location</string>
+    <string name="enter_country_code">Enter country code</string>
+</resources>
