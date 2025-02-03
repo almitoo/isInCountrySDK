@@ -1,0 +1,3 @@
+Location SDK Documentation
+Introduction
+The Location SDK allows developers to easily determine whether a user's current location is within the borders of a specified country. By providing the country code, the SDK will access the device's real-time location and verify whether it falls within the country's borders, sending the location data to a backend server for validation.
