@@ -1,0 +1,91 @@
+# Location SDK Documentation
+
+This SDK allows you to check if a user's location is within the borders of a specified country.
+
+## Available Functions
+
+In the project directory, you can use the following function:
+
+### `LocationSdk(Context context)`
+
+Initialize the SDK with the context of your application.
+
+#### Example:
+
+```java
+LocationSdk locationSdk = new LocationSdk(context);
+```
+
+### `isInCountry(String countryCode, LocationResultCallback callback)`
+
+Check if the user's current location is within the specified country. Pass in the **country code** (e.g., "US") and provide a **callback** to handle the response.
+
+#### Example:
+
+```java
+locationSdk.isInCountry("US", new LocationSdk.LocationResultCallback() {
+    @Override
+    public void onSuccess(boolean success) {
+        if (success) {
+            // The user is within the specified country
+        } else {
+            // The user is outside the specified country
+        }
+    }
+
+    @Override
+    public void onError(String errorMessage) {
+        // Handle errors (e.g., location permission not granted, API failure, etc.)
+    }
+});
+```
+
+
+
+
+
+## How It Works
+
+1. **Fused Location Provider**: The SDK uses Google's **FusedLocationProviderClient** to get the current location (latitude and longitude) of the device.
+2. **API Request**: The SDK sends the location data (longitude and latitude) along with the **country code** to the backend server.
+3. **Server Validation**: The server checks whether the location is inside the borders of the country specified by the country code.
+4. **Response**: The SDK will return either `true` or `false` depending on whether the location is inside the specified country.
+
+## Example API Request:
+
+```json
+{
+  "longitude": 34.0522,
+  "latitude": -118.2437,
+  "countryCode": "US"
+}
+```
+
+## Example API Response:
+
+```json
+{
+  "success": true
+}
+```
+
+## Error Handling
+
+The SDK provides error messages via the `onError` callback. Common error messages include:
+
+- **Location permissions not granted**: The app does not have permission to access location.
+- **Unable to fetch location**: The SDK failed to retrieve the user's location.
+- **API call failed**: The request to the backend API failed.
+
+## Customization
+
+- **Location Accuracy**: The SDK uses a configurable location request. You can adjust the frequency and accuracy of location updates using the `LocationRequest` object.
+- **API Base URL**: By default, the SDK uses a local development URL (`http://10.0.2.2:3000`). Make sure to replace this with your production API URL when deploying.
+
+---
+
+## Contributing
+
+If you'd like to contribute to this SDK, feel free to fork the repository and submit pull requests. Any issues or feature requests can be raised on the GitHub issue tracker.
+
+---
