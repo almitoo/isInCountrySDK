@@ -1,7 +1,20 @@
 # Location SDK Documentation
 
 This SDK allows you to check if a user's location is within the borders of a specified country.
+The SDK is useful for applications that require geographic location identification and allows checking if a user's location is within the borders of a specific country. It is ideal for geo-fencing apps, location-based content delivery, and restricting access to services based on country. This SDK can be used in travel apps displaying localized information by country, and in e-commerce apps that restrict products and services based on the user's location.
 
+## How to Use
+
+Add JitPack to your project-level `build.gradle` or `settings.gradle`:
+    ```kotlin
+    repositories {
+        maven { url = uri("https://jitpack.io" )}
+    }
+    ```
+
+    dependencies {
+    implementation ("com.github.almito:isInCountrySDK:1.0.0")
+}
 ## Available Functions
 
 In the project directory, you can use the following function:
@@ -83,7 +96,8 @@ The SDK provides error messages via the `onError` callback. Common error message
 - **API Base URL**: By default, the SDK uses a local development URL (`http://10.0.2.2:3000`). Make sure to replace this with your production API URL when deploying.
 
 ---
-![image alt](https://github.com/almitoo/isInCountrySDK/blob/08ad1a2906af5b0f4e9e258167e80570e292aac8/Screenshot%202025-02-03%20154726.png)  ![image alt](https://github.com/almitoo/isInCountrySDK/blob/bdb4813d557fd70dbccedfc275d05aaa6e00a0a6/Screenshot%202025-02-03%20154940.png)
+![image alt](https://github.com/almitoo/isInCountrySDK/blob/08ad1a2906af5b0f4e9e258167e80570e292aac8/Screenshot%202025-02-03%20154726.png)  
+![image alt](https://github.com/almitoo/isInCountrySDK/blob/bdb4813d557fd70dbccedfc275d05aaa6e00a0a6/Screenshot%202025-02-03%20154940.png)
 
 
 ## Contributing
