@@ -40,9 +40,8 @@ locationSdk.isInCountry("US", new LocationSdk.LocationResultCallback() {
 });
 ```
 
-## Setup Instructions
 
-### 1. Install Dependencies
+
 
 
 ## How It Works
