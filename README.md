@@ -3,7 +3,27 @@
 This SDK allows you to check if a user's location is within the borders of a specified country.
 The SDK is useful for applications that require geographic location identification and allows checking if a user's location is within the borders of a specific country. It is ideal for geo-fencing apps, location-based content delivery, and restricting access to services based on country. This SDK can be used in travel apps displaying localized information by country, and in e-commerce apps that restrict products and services based on the user's location.
 
-## How to Use
+
+## Backend Server
+
+The SDK sends location data to the backend server, which checks if the user's location is within the borders of the specified country. The server is responsible for validating the location against the country's borders and ensures the accuracy of the result.
+
+- **Repository link**: [Server Repository](https://github.com/almitoo/API-Location)
+
+## Portal
+
+The portal is used by the admin to manage and update the polygons representing the country's borders. The admin can edit, create, or delete country polygons, ensuring that the validation process is accurate and up-to-date.
+
+- **Repository link**: [Portal Repository](https://github.com/almitoo/Polygon-management-portal)
+
+
+## How It Works
+
+1. The SDK requests the user's location and sends it along with the country code to the server.
+2. The server checks if the location is inside the borders of the country using the polygons managed by the admin in the portal  that save in the data base.
+3. The server stores the validation results and sends the response back to the SDK, indicating whether the location is within the country's borders.
+
+## How to Use SDK
 
 Add JitPack to your project-level `build.gradle` or `settings.gradle`:
     ```kotlin
